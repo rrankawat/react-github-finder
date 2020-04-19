@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 class Search extends Component {
@@ -8,6 +8,8 @@ class Search extends Component {
 
   static propTypes = {
     searchUsers: PropTypes.func.isRequired,
+    clearUsers: PropTypes.func.isRequired,
+    showClear: PropTypes.bool.isRequired,
   };
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
@@ -17,22 +19,39 @@ class Search extends Component {
     this.props.searchUsers(this.state.text);
   };
 
+  onClick = (e) => {
+    e.preventDefault();
+    this.props.clearUsers();
+    this.setState({ text: '' });
+  };
+
   render() {
     return (
-      <form onSubmit={this.onSubmit} className="form">
-        <input
-          type="text"
-          name="text"
-          placeholder="Search"
-          value={this.state.value}
-          onChange={this.onChange}
-        />
-        <input
-          type="submit"
-          value="Search"
-          className="btn btn-dark btn-block"
-        />
-      </form>
+      <Fragment>
+        <form onSubmit={this.onSubmit} className="form">
+          <input
+            type="text"
+            name="text"
+            placeholder="Search"
+            value={this.state.text}
+            onChange={this.onChange}
+          />
+          <input
+            type="submit"
+            value="Search"
+            className="btn btn-dark btn-block"
+          />
+        </form>
+        {this.props.showClear && (
+          <button
+            type="button"
+            className="btn btn-light btn-block"
+            onClick={this.onClick}
+          >
+            Clear
+          </button>
+        )}
+      </Fragment>
     );
   }
 }
