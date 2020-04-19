@@ -10,6 +10,10 @@
 
 ## API
 
-- https://api.github.com/users
+- https://api.github.com/users?client_id=''&client_secret=''
 
 ## Links
+
+## Project URL
+
+- https://react-github-finder.now.sh/
