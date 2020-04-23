@@ -13,6 +13,7 @@
 
 - All Users: https://api.github.com/users?client_id=''&client_secret=''
 - Search Users: https://api.github.com/search/users?q=''&client_id=''&client_secret=''
+- Single User: https://api.github.com/users/{username}?client_id=''&client_secret=''
 
 ## Links
 
