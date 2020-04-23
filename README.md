@@ -6,7 +6,8 @@
 
 ## Dependencies
 
-- axios: npm install --save axios
+- Axios: npm install --save axios
+- Router: npm install --save react-router-dom
 
 ## API
 
